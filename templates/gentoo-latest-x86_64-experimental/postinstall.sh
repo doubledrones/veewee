@@ -204,6 +204,21 @@ rm -rf /mnt/gentoo/usr/portage/distfiles
 mkdir /mnt/gentoo/usr/portage/distfiles
 echo "chown portage:portage /usr/portage/distfiles" | chroot /mnt/gentoo /bin/bash -
 
+# Clean not need things to minimize base box
+cat <<EOF | chroot /mnt/gentoo /bin/bash -
+cd /usr/src/linux
+make clean
+emerge -C gentoo-sources
+rm -f /usr/portage-latest.tar.bz2
+rm -rf /usr/share/man /usr/share/info /usr/share/doc /usr/share/gtk-doc
+mv /usr/share/locale/en /usr/share/.locale-en
+mv /usr/share/locale/locale.alias /usr/share/.locale-locale.alias
+rm -rf /usr/share/locale
+mkdir /usr/share/locale
+mv /usr/share/.locale-locale.alias /usr/share/locale/locale.alias
+mv /usr/share/.locale-en /usr/share/locale/en
+EOF
+
 echo "sed -i 's:^DAEMONS\(.*\))$:DAEMONS\1 rc.vboxadd):' /etc/rc.conf" | chroot /mnt/gentoo sh -
 
 exit

@@ -218,6 +218,7 @@ mkdir /usr/share/locale
 mv /usr/share/.locale-locale.alias /usr/share/locale/locale.alias
 mv /usr/share/.locale-en /usr/share/locale/en
 rm -f /stage3-amd64-20111208.tar.bz2
+rm -f /etc/udev/rules.d/70-persistent-net.rules
 EOF
 
 echo "sed -i 's:^DAEMONS\(.*\))$:DAEMONS\1 rc.vboxadd):' /etc/rc.conf" | chroot /mnt/gentoo sh -

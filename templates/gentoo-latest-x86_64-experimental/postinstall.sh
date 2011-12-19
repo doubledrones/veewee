@@ -184,6 +184,8 @@ echo ". /usr/local/rvm/scripts/rvm ; gem install puppet --no-ri --no-rdoc"| chro
 echo "adding rvm to global bash rc"
 echo "echo '. /usr/local/rvm/scripts/rvm' >> /etc/bash/bash.rc" | chroot /mnt/gentoo sh -
 
+echo ". /usr/local/rvm/scripts/rvm ; rvm cleanup all" | chroot /mnt/gentoo sh -
+
 /bin/cp -f /root/.vbox_version /mnt/gentoo/home/vagrant/.vbox_version
 VBOX_VERSION=$(cat /root/.vbox_version)
 

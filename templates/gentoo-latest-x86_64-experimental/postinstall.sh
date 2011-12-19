@@ -182,7 +182,7 @@ echo ". /usr/local/rvm/scripts/rvm ; gem install puppet --no-ri --no-rdoc"| chro
 
 
 echo "adding rvm to global bash rc"
-echo "echo '. /usr/local/rvm/scripts/rvm' >> /etc/bash/bash.rc" | chroot /mnt/gentoo sh -
+echo "echo '. /usr/local/rvm/scripts/rvm' >> /etc/bash/bashrc" | chroot /mnt/gentoo sh -
 
 echo ". /usr/local/rvm/scripts/rvm ; rvm cleanup all" | chroot /mnt/gentoo sh -
 

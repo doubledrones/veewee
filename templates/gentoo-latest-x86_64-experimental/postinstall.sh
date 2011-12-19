@@ -44,7 +44,7 @@ cd /mnt/gentoo
 
 #Download a stage3 archive
 while true; do
-	wget http://mirror.switch.ch/ftp/mirror/gentoo/releases/amd64/autobuilds/20111013/stage3-amd64-20111013.tar.bz2 && > gotstage3
+	wget http://mirror.switch.ch/ftp/mirror/gentoo/releases/amd64/autobuilds/20111208/stage3-amd64-20111208.tar.bz2 && > gotstage3
         if [ -f "gotstage3" ]
         then
 		break

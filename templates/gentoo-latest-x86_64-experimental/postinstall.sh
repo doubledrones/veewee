@@ -177,12 +177,13 @@ echo "/usr/local/rvm/bin/rvm install ruby-1.8.7 "| chroot /mnt/gentoo sh -
 echo "/usr/local/rvm/bin/rvm use ruby-1.8.7 --default "| chroot /mnt/gentoo sh -
 
 #Installing chef & Puppet
-echo ". /usr/local/rvm/scripts/rvm ; gem install chef --no-ri --no-rdoc"| chroot /mnt/gentoo sh -
-echo ". /usr/local/rvm/scripts/rvm ; gem install puppet --no-ri --no-rdoc"| chroot /mnt/gentoo sh -
+echo ". /usr/local/rvm/scripts/rvm ; rvm use ruby-1.8.7 ; gem install chef --no-ri --no-rdoc"| chroot /mnt/gentoo sh -
+echo ". /usr/local/rvm/scripts/rvm ; rvm use ruby-1.8.7 ; gem install puppet --no-ri --no-rdoc"| chroot /mnt/gentoo sh -
 
 
 echo "adding rvm to global bash rc"
 echo "echo '. /usr/local/rvm/scripts/rvm' >> /etc/bash/bashrc" | chroot /mnt/gentoo sh -
+echo "echo 'rvm use ruby-1.8.7' >> /etc/bash/bashrc" | chroot /mnt/gentoo sh -
 
 echo ". /usr/local/rvm/scripts/rvm ; rvm cleanup all" | chroot /mnt/gentoo sh -
 
